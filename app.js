@@ -1,16 +1,18 @@
 
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const PORT = process.env.PORT || 8000;
+const MONGO_URL = process.env.MONGO_URL;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 
 //db connection
-mongoose.connect('mongodb://127.0.0.1:27017/User')
+mongoose.connect(MONGO_URL)
 .then(() => console.log('Connected with server'))
 .catch((err) => console.log('mongodb Error',err))
 
