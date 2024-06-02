@@ -50,6 +50,11 @@ const User = mongoose.model('User',userSchema)
 
 
 //routes
+
+app.get('/',(req,res)=>{
+    res.send('User Authorization');
+})
+
 app.post('/signup',async (req,res)=>{
     let reqbody = req.body;
     console.log('reqbody>>>>>>>>>>>>>>>>>>',reqbody);
